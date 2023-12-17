@@ -1,13 +1,18 @@
+// import { useState } from 'react'
+import Pokedex from './Components/PokeDex/Pokedex'
 
 import './App.css'
+import PokemonDetails from './Components/PokemonDetails/PokemonDetails'
+import { Route, Routes } from 'react-router-dom'
 
 function App() {
-  const [count, setCount] = useState(0)
 
   return (
-    <>
-      PokeDex
-    </>
+    <Routes>
+      <Route path="/" element={<Pokedex />} />
+      <Route path='/pokemon/:id' element={<PokemonDetails />} />
+      <Route path="*" element={<h1>Not Found</h1>}/>
+    </Routes>
   )
 }
 
