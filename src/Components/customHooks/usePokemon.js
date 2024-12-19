@@ -4,28 +4,35 @@ import { useEffect, useState } from "react";
 function usePokemon(id){
     const POKEMON_DETAIL_URL = 'https://pokeapi.co/api/v2/pokemon/';
 
-    const [pokemon, setPokemon] = useStatete(null);
+    const [pokemon, setPokemon] = useState(null);
 
     async function downloadPokemon(id){
-        const response = await axiosios.get(POKEMON_DETAIL_URL + id);
-        console.log((POKEMON_DETAIL_URL + id));
-        const pokemon = response.data;
+        console.log(id);
+        // console.log(POKEMON_DETAIL_URL+id);
+        const response = await axios.get(POKEMON_DETAIL_URL + id);
+        const pokemonData = response.data;
 
-        setPokemon( () => {
-            name: pokemon.name;
-            height: pokemon.height;
-            weight: pokemon.weight; 
-            types: pokemon.types;
-            image: pokemon.sprites.other.dream_world.front_default
+        // console.log(pokemon);
+        // console.log(pokemon.name);
+
+        setPokemon({
+            name: pokemonData.name,
+            height: pokemonData.height,
+            weight: pokemonData.weight,
+            types: pokemonData.types,
+            image: pokemonData.sprites.other.dream_world.front_default
         });
 
-        return [pokemon];
+        // console.log(pokemon);
+
     }
 
-
-    useEffectct(()=>{
+    
+    useEffect(()=>{
         downloadPokemon(id);
     }, []);
+
+    return [pokemon];
 }
 
-export default usePokemonp;
+export default usePokemon;

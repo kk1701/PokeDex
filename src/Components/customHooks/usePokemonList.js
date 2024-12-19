@@ -41,11 +41,11 @@ function usePokemonList(){
 
         // console.log(pokemonFinalList);
 
-        setPokemonListState({...pokemonListState, pokemonList: pokemonFinalList, prevUrl: response.data.previous, nextUrl: response.data.next})
+        setPokemonListState({...pokemonListState, pokemonList: pokemonFinalList, prevUrl: response.data.previous, nextUrl: response.data.next});
 
     }
 
-    useEffect(() => {         //always gets called when th component re renders. It gets called once only when an empty dependency array is passed, again and againj if no dependency array is passed and depending on the component when the specified component in dependency araray re renders.
+    useEffect(() => {         //always gets called when th component re renders. It gets called once only when an empty dependency array is passed, again and again if no dependency array is passed and depending on the component when the specified component in dependency araray re renders.
         downloadPokemon();
     }, [pokemonListState.pokedexUrl]);
 
