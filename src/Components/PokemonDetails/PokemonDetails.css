@@ -34,6 +34,8 @@
     border-radius: 10px;
     background-color: whitesmoke;
     margin-left: 1rem;
+    text-transform: uppercase;
+
 }
 
 .pokemon-types > h1{
